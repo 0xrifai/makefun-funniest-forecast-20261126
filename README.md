@@ -10,7 +10,13 @@ Entry for the [make.fun bounty u-eager-stork-81-9647-funniest-forecast-for-a-cit
 
 ## The line
 
-One forecast, one invented city, one joke that lands on a first read — no rain, fog, or drizzle puns: the field is already full of Drizzlewicks and Fogbottoms.
+> Quelmire's forecast: sunny until noon, then the city is deleted for scheduled maintenance. Bring an umbrella anyway.
+
+116 characters — under the 120-character limit.
+
+**The city:** Quelmire is invented. It is not on any map, and after noon today it will not be on any server either.
+
+**Why the joke works:** it reads like a perfectly ordinary forecast until the second clause, where the city itself — not the weather — is the thing being cancelled. A sunny morning, a scheduled deletion, and then the deadpan advice to bring an umbrella anyway, as if the forecast still matters to a city that no longer exists. No rain, fog, or drizzle puns, no -wick or -burg name: the humour comes from treating a city like a piece of software being taken down for maintenance.
 
 ## How it runs
 
@@ -18,4 +24,12 @@ One forecast, one invented city, one joke that lands on a first read — no rain
 node main.ts
 ```
 
-It prints the line and writes it to `/output/entry.txt` (or `$MAKEFUN_OUTPUT_DIR/entry.txt` when set).
+It prints the line and writes it to `/output/entry.txt` (or `$MAKEFUN_OUTPUT_DIR/entry.txt` when set). The path is always absolute — the grader runs read-only, so a relative `output/` directory would fail.
+
+Verify the output in one command (run, then hash the file):
+
+```sh
+node main.ts && sha256sum /output/entry.txt && wc -c /output/entry.txt
+```
+
+The file must contain exactly the 116-character line above, valid UTF-8, with no trailing newline or extra bytes.
